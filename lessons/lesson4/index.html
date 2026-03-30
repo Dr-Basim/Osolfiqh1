@@ -899,12 +899,19 @@ function finishFinalQuiz(totalQs) {
   
   // إرسال النتيجة
   const fd = new FormData();
-  fd.append("entry.1186146438", "الرابعة - أصول فقه ١ (بناء المعرفة)"); 
-  fd.append("entry.598195891", user.n);       
-  fd.append("entry.583802758", user.s);        
-  fd.append("entry.2010697018", totalScore);
-  fd.append("entry.1329211307", timeStr);   
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLSe0zGzyfo7FfGHta0Ae-J5NYmFFCCLK4W2NdnG92dHH51IcBg/formResponse", { method: "POST", mode: "no-cors", body: fd }).catch(e=>console.log(e));
+  // المحاضرة
+  fd.append("entry.637964510", "الرابعة - أصول فقه ١ (السبورة التفاعلية)"); 
+  // الاسم
+  fd.append("entry.385711661", user.n);       
+  // الشعبة
+  fd.append("entry.878838148", user.s);        
+  // الدرجة
+  fd.append("entry.1123339447", totalScore);
+  // الوقت
+  fd.append("entry.12254399", timeStr);   
+  
+  // رابط الإرسال الخاص بأصول الفقه
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSdBMIJTC8YhY1iy9uN-jcUvPBLm-0WvUZl2e_4RslU6hbKKrw/formResponse", { method: "POST", mode: "no-cors", body: fd }).catch(e=>console.log(e));
 
   $('#qzRes').innerHTML = `
     <div style="text-align:center; padding:45px; background:var(--white); border-radius:24px; border:3px solid var(--gold); margin-top:40px; box-shadow:var(--shadow-lg);">
